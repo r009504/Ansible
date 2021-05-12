@@ -1,13 +1,13 @@
 ---
   - name: "springpet clinic as linux service"
     become: yes
-    tasks: 
-      - name: "Install open-JDK-11"
+    tasks:
+      - name: "Install open jdk"
         hosts: appserver
-        apt:
-          name: openjdk-11-jdk
-          update_cache: yes
-          state: present
+        
+      
+      
+     
       
       
       
