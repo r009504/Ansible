@@ -1,0 +1,25 @@
+---
+  - name: "springpet clinic as linux service"
+    become: yes
+    tasks: 
+      - name: "Install open-JDK-11"
+        apt:
+          name: openjdk-11-jdk
+          update_cache: yes
+          state: present
+      - name:  " Create directory springpetclinic"
+        ansible.builtin.file:
+        path: /usr/share/springpetclinic
+        state: directory
+      - name: "donwload Spring pet clinnc jar"
+        get_url:
+          url: https://referenceapplicationskhaja.s3-us-west-2.amazonaws.com/spring-petclinic-2.4.2.jar
+          dest: /usr/share/springpetclinic/spring-petclinic-2.4.2.jar
+
+         
+           
+
+      
+      
+    
+  
