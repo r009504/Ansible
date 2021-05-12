@@ -1,15 +1,10 @@
 ---
-  - name: "springpet clinic as linux service"
+  - name: Create service for spring pet clinic
+    hosts: appserver
     become: yes
     tasks:
-      - name: "Install open jdk"
-        hosts: appserver
-        
-      
-      
-     
-      
-      
-      
-    
-  
+      - name: Update ubuntu packages and install java
+        apt:
+          name: openjdk-11-jdk
+          Update_cache: yes
+          state: present
