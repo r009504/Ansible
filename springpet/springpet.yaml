@@ -3,6 +3,7 @@
     become: yes
     tasks: 
       - name: "Install open-JDK-11"
+        hosts: appserver
         apt:
           name: openjdk-11-jdk
           update_cache: yes
