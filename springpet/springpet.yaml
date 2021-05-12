@@ -6,5 +6,5 @@
       - name: Update ubuntu packages and install java
         apt:
           name: openjdk-11-jdk
-          Update_cache: yes
+          update_cache: yes
           state: present
