@@ -22,11 +22,9 @@
           password: devops
           state: present
       - name: Chnage ownersip of the file springpet to  springbootuser
-        path: /usr/share/springpetclinic/spring-petclinic-2.4.2.jar
-        owner: springbootuser
-        group: springbootuser
-        mode: 500
-         
-
-
+        ansible.builtin.file:
+          path: /usr/share/springpetclinic/spring-petclinic-2.4.2.jar
+          owner: springbootuser
+          group: springbootuser
+          mode: 500
         
