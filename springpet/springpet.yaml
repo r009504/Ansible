@@ -16,4 +16,17 @@
         get_url: 
           url: https://referenceapplicationskhaja.s3-us-west-2.amazonaws.com/spring-petclinic-2.4.2.jar
           dest: /usr/share/springpetclinic/spring-petclinic-2.4.2.jar
+      - name: create user springbootuser
+        ansible.builtin.user:
+          name: springbootuser
+          password: devops
+          state: present
+      - name: Chnage ownersip of the file springpet to  springbootuser
+        path: /usr/share/springpetclinic/spring-petclinic-2.4.2.jar
+        owner: springbootuser
+        group: springbootuser
+        mode: 500
+         
+
+
         
