@@ -36,7 +36,7 @@
         systemd:
           name: springpetclinic.service
           enabled: yes 
-          status: started
+          state: started
 
 
         
