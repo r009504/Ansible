@@ -27,4 +27,16 @@
           owner: springbootuser
           group: springbootuser
           mode: 500
+          state: file
+      - name: Creating linux service by copying springpetclinic service file
+        ansible.builtin.copy:
+          src: springpetclinic.service
+          dest: /etc/systemd/system/springpetclinic.service
+      - name: Enable and start sprinpetclinic service
+        systemd:
+          name: springpetclinic.service
+          enabled: yes 
+          status: started
+
+
         
