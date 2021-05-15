@@ -39,7 +39,7 @@
         ansible.builtin.file:
           path: /opt/tomcat/conf
           group: tomcat
-          mode: 401
+          mode: 750
 
 
       
