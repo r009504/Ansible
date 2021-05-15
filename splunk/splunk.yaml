@@ -10,12 +10,19 @@
         get_url:
           url: https://www.splunk.com/bin/splunk/DownloadActivityServlet?architecture=x86_64&platform=linux&version=8.2.0&product=splunk&filename=splunk-8.2.0-e053ef3c985f-linux-2.6-amd64.deb&wget=true
           dest: /tmp/splunk-8.2.0-e053ef3c985f-linux-2.6-amd64.deb
+          notify:
+            - splunk-8.2.0 is successfully downloded
       - name: Installing splunk Package
         apt:
           deb: /tmp/splunk-8.2.0-e053ef3c985f-linux-2.6-amd64.deb
-      - name: Start Splunk service
-        tag:
-          install
-        shell: /opt/splunk/bin/splunk start --accept-license --answer-yes
- 
+          notify:
+            - splunk-8.2.0 installed
+    handlers: 
+      - name: splunk-8.2.0 is successfully downloded
+        debug:
+          msg: "splunk-8.2.0 is successfully downloded"
+
+      - name: splunk-8.2.0 installed
+        debug:
+          msg: "splunk-8.2.0 installed"
       
