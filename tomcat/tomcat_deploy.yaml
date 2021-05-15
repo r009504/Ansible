@@ -35,6 +35,14 @@
           path: /opt/tomcat
           owner: tomcat
           group: tomcat
+      - name: Change file ownership, group and permissions
+        ansible.builtin.file:
+          path: /opt/tomcat/conf
+          group: tomcat
+          mode: 401
+
+
+      
 
       
 
