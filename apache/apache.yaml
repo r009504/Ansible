@@ -1,0 +1,15 @@
+---
+  - name: Intall apache package
+    hosts: apache
+    bccome: yes
+    tasks:
+      - name: Install apache package
+        apt:
+          name: apache2
+          update_cache: yes
+          state: present
+      - name: Install php
+        apt:
+          name: php
+          update_cache: yes
+          state: yes
