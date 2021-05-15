@@ -37,7 +37,7 @@
           group: tomcat
       - name: Change file ownership, group and permissions
         ansible.builtin.file:
-          path: /opt/tomcat/conf
+          path: /opt/tomcat/apache-tomcat-9.0.46/conf
           group: tomcat
           mode: 750
 
