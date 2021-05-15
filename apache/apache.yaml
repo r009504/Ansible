@@ -12,4 +12,4 @@
         apt:
           name: php
           update_cache: yes
-          state: yes
+          state: present
