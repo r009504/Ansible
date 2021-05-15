@@ -1,7 +1,7 @@
 ---
   - name: Intall apache package
     hosts: apache
-    bccome: yes
+    become: yes
     tasks:
       - name: Install apache package
         apt:
