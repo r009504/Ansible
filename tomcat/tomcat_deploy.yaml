@@ -40,7 +40,23 @@
           path: /opt/tomcat/apache-tomcat-9.0.46/conf
           group: tomcat
           mode: 750
-
+      - name: Chnage ownserhsip of webapps
+        ansible.builtin.file:
+          path: /opt/tomcat/apache-tomcat-9.0.46/webapps
+          owner: tomcat
+      - name: Chnage ownserhsip of work
+        ansible.builtin.file:
+          path: /opt/tomcat/apache-tomcat-9.0.46/work
+          owner: tomcat
+      - name: Chnage ownserhsip of temp
+        ansible.builtin.file:
+          path: /opt/tomcat/apache-tomcat-9.0.46/temp
+          owner: tomcat
+      - name: Chnage ownserhsip of logs
+        ansible.builtin.file:
+          path: /opt/tomcat/apache-tomcat-9.0.46/logs
+          owner: tomcat
+      
 
       
 
