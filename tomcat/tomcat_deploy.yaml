@@ -1,0 +1,44 @@
+---
+  - name: Deploy tomcat package
+    hosts: tomcat_server
+    become: yes
+    tasks:
+      - name: Install package
+        package:
+          name: openjdk-11-jdk
+          state: present
+      - name: Create tomcat user group
+        ansible.builtin.group:
+          name: tomcat
+          state: present
+      - name: create tomcat user 
+        ansible.builtin.user:
+          name: tomcat
+          password: tomcat
+          state: present
+          group: tomcaat
+      - name: donwload splunk debian file 
+        get_url:
+          url: https://apachemirror.wuchna.com/tomcat/tomcat-9/v9.0.46/bin/apache-tomcat-9.0.46.tar.gz
+          dest: /tmp/apache-tomcat-9.0.46.tar.gz
+      - name: create directory
+        ansible.builtin.file:
+          path: /opt/tomcat
+          state: directory
+      - name: Extract foo.tgz into /opt/tomcat
+        ansible.builtin.unarchive:
+          src: /tmp/apache-tomcat-9.0.46.tar.gz
+          dest: /opt/tomcat
+      - name: Change file ownership, group and permissions
+        ansible.builtin.file:
+          path: /opt/tomcat
+          owner: tomcat
+          group: tomcat
+
+      
+
+
+
+
+      
+    
