@@ -40,7 +40,7 @@
         ansible.builtin.file:
           path: /opt/tomcat/apache-tomcat-9.0.46/conf
           group: tomcat
-          mode: 050
+          mode: '0750'
       - name: Chnage ownserhsip of webapps
         ansible.builtin.file:
           path: /opt/tomcat/apache-tomcat-9.0.46/webapps
@@ -64,7 +64,7 @@
       - name: Just force systemd to reread configs (2.4 and above)
         ansible.builtin.systemd:
           daemon_reload: yes
-      - name: Enable and start sprinpetclinic service
+      - name: Enable and start tomcat.service service
         systemd:
           name: tomcat.service
           enabled: yes 
