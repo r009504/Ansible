@@ -1,0 +1,11 @@
+---
+  - name: Test deployment of tomcat
+    hosts: tomcat
+    become: yes
+    tasks:
+      - name: Chang group permission of /opt/tomcat to tomcat
+        ansible.builtin.file:
+          path: /etc/foo.conf
+          group: tomcat
+          recurse: yes
+          state: directory
