@@ -5,7 +5,7 @@
     tasks:
       - name: Chang group permission of /opt/tomcat to tomcat
         ansible.builtin.file:
-          path: /etc/foo.conf
+          path: /opt/tomcat/
           group: tomcat
           recurse: yes
           state: directory
