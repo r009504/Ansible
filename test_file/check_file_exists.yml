@@ -5,7 +5,7 @@
     tasks:
       - stat:
           path: "{{ file_location }}"
-          register: file_state
+        register: file_state
       - debug:
           msg: "File exists in locaiton {{ file_location }} "
         when: file_state.exists
