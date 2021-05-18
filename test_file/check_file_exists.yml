@@ -4,7 +4,7 @@
     become: yes
     tasks:
       - stat:
-          path: /home/devops/test
+          path: "{{ file_location }}"
         register: file_state
       - debug:
           msg: "File exists in locaiton "
