@@ -10,8 +10,8 @@
       - name: Report if file exists
         debug: 
           msg: "File exists in locaiton {{ file_location }} "
-        when: file_test
+        when: file_test.stat.exists
       - name: Report when file do not exists
         debug:
           msg: "File do not exists in location {{ file_location }}" 
-        when: not file_test
+        when: not file_test.stat.exists
