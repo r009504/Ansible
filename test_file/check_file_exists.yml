@@ -5,7 +5,7 @@
     tasks:
       - stat:
           path: /home/devops/test
-        register: test_file
+        register: file_state
       - debug:
           msg: "File exists in locaiton "
         when: file_state.exists
