@@ -8,7 +8,7 @@
         register: file_state
       - debug:
           msg: "File exists in locaiton "
-        when: file_state.exists
+        when: file_state.stat.exists
       - debug:
           msg: "File do not exists in location  "
-        when: not file_state.exists
+        when: not file_state.stat.exists
