@@ -5,11 +5,10 @@
     tasks:
       - stat:
           path: "{{ file_location }}"
-        register: file_state
+        register: test_file
       - debug:
           msg: "File exists in locaiton {{ file_location }} "
         when: file_state.exists
       - debug:
           msg: "File do not exists in location {{ file_location }} "
         when: not file_state.exists
-  
