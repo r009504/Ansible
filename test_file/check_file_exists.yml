@@ -4,11 +4,11 @@
     become: yes
     tasks:
       - stat:
-          path: "{{ file_location }}"
+          path: /home/devops/test
         register: test_file
       - debug:
-          msg: "File exists in locaiton {{ file_location }} "
+          msg: "File exists in locaiton "
         when: file_state.exists
       - debug:
-          msg: "File do not exists in location {{ file_location }} "
+          msg: "File do not exists in location  "
         when: not file_state.exists
