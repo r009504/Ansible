@@ -1,0 +1,8 @@
+---
+  - name: Test variable
+    hosts: test_server
+    become: yes
+    tasks:
+      - name: test variable
+        debug:
+          msg: "{{ test_name }}"
