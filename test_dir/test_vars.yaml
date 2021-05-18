@@ -2,8 +2,6 @@
   - name: test_vars
     hosts: test 
     become: yes
-    vars:
-      test_name: sairam
     tasks: 
       - name: variable name
         debug:
