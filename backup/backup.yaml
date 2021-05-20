@@ -14,15 +14,5 @@
         when: file_state.stat.exists
 
       - name: Report flle do nto exists
-        debug: 
-          msg: "File do not exists {{ file_location }}"
+        command: " touch {{ file_location }} "
         when: not file_state.stat.exists
-        notify: create file
-
-    handlers: 
-      - name: create file
-        command: " touch {{ file_location }}"
-
-
-    
-       
