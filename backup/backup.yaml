@@ -1,0 +1,17 @@
+---
+  - name: Backup a file 
+    hosts: backup_server
+    become: yes
+    tasks:
+      name: check if hte file exists
+      stat: 
+         path: " {{ file_path }}"
+      register: file_data
+      when: not file_data.stat.exists
+      notify: create a file
+
+    handlers:
+      name: create a file
+      file:
+        path: "{{ file_path }} "
+        state: touch
