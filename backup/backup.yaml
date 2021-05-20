@@ -13,12 +13,11 @@
           msg: "File at location {{ file_location }} "
         when: file_state.stat.exists
 
-      - name: File do not exists
-        file:
-          path: "{{ file_location }}"
-          state: touch
+      - name: Report flle do nto exists
+        debug: 
+          msg: "File do not exists {{ file_location }}"
         when: not file_state.stat.exists
-       
+        
     
     
 
