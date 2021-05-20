@@ -22,7 +22,8 @@
     handlers:
       - name: create file
         file:
-          
+          path: "{{ file_location }}"
+          state: touch
 
 
        
