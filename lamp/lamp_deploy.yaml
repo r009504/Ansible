@@ -23,6 +23,7 @@
       - name: Ensuer apche service always up 
         service: 
           name: "{{ apache_package }} " 
+          enabled: yes
           state: started
 
     handlers: 
