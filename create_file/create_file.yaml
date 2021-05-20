@@ -1,0 +1,19 @@
+---
+  - name: Create file if file do not exists 
+    hosts: file_server
+    become: yes
+    tasks:
+      - name: check if file exists
+        stat:
+          path: "{{ file_path }}"
+        register: file_out
+      - name: Report file exists
+        debug: 
+          msg: " File exists at lociaton {{ file_path }} "
+        when: file_out.stat.exists
+      - name: create file if do not exists
+        file:
+          path: "{{ file_path }}"
+          owner: devops
+          state: touch
+        when: not file_out.stat.exists
