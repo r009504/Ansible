@@ -1,0 +1,17 @@
+---
+  - name: Program to check if file exists
+    hosts: file_server
+    become: yes
+    tasks:
+      - name: Check if file exists 
+        stat:
+          path: "{{ file_path }}"
+        register: file_code
+      - name: Report stating file present in the present location
+        debug:
+          msg: "File exists at {{ file_path }}"
+        when: file_code.stat.exists
+      - name: Report file do exists at given location
+        debug:
+          msg: "File do not exists {{ file_path }}"
+        when: not file_code.stat.exists
