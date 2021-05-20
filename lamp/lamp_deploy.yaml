@@ -22,7 +22,7 @@
           - restart apache service
       - name: Ensuer apche service always up 
         service: 
-          name: apache2 
+          name: "{{ apache_package }}"
           enabled: yes
           state: started
 
