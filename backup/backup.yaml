@@ -19,12 +19,6 @@
         when: not file_state.stat.exists
         notify: create file 
 
-    handlers:
-      name: create file 
-      file:
-        path: "{{ file_location }}"
-
-
 
        
 
