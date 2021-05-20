@@ -13,10 +13,25 @@
           name: "{{ item }}"
           state: present
         loop: "{{ php_package_list }}"
+      - name: Copying info.php file
+        ansible.builtin.copy:
+          src: info.php
+          dest: "{{ php_log_file }}"
+        notify:
+          - file copied successfully 
+          - restart apache service
     handlers: 
-      - debug:
+      - name: Package is installed
+        debug:
           msg: "{{ apache_package }} is successfully installed"
-          
+      - name: file copied successfully
+        debug:
+          msg: "File copied successfully to {{ php_log_file }} " 
+      - name: restart apache service
+        service: 
+          name: "{{ apache_package }} " 
+          state: restarted
+
       
       
 
