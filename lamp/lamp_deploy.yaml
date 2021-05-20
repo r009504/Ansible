@@ -20,6 +20,11 @@
         notify:
           - file copied successfully 
           - restart apache service
+      - name: Ensuer apche service always up 
+        service: 
+          name: "{{ apache_package }} " 
+          state: started
+
     handlers: 
       - name: Package is installed
         debug:
