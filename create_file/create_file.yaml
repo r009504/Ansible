@@ -17,3 +17,9 @@
           owner: devops
           state: touch
         when: not file_out.stat.exists
+        notify: created file
+
+    handlers:
+      - name: created file
+        debug: 
+          msg: "succssfully created file"
