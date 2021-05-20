@@ -3,15 +3,30 @@
     hosts: backup_server
     become: yes
     tasks:
-      name: check if hte file exists
-      stat: 
-         path: " {{ file_path }}"
-      register: file_data
-      when: not file_data.stat.exists
-      notify: create a file
+      - name: Check if hte file exists
+        stat:
+          path: "{{ file_location }} "
+        register: file_state
+
+      - name: report file exists
+        debug:
+          msg: "File at location {{ file_location }} "
+        when: file_state.stat.exists
+
+      - name: File do not exists
+        debug: 
+          msg: "File do not exists"
+        when: not file_state.stat.exists
+        notify: create file 
 
     handlers:
-      name: create a file
+      name: create file 
       file:
-        path: "{{ file_path }} "
-        state: touch
+        path: "{{ file_location }}"
+
+
+
+       
+
+    
+       
