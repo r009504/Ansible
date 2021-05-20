@@ -1,5 +1,5 @@
 ---
-  - name: Backup a file 
+  - name: Backup a file
     hosts: backup_server
     become: yes
     tasks:
