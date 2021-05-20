@@ -7,12 +7,10 @@
         stat:
           path: "{{ file_location }} "
         register: file_state
-
       - name: report file exists
         debug:
           msg: "File at location {{ file_location }} "
         when: file_state.stat.exists
-
       - name: Report flle do nto exists
         debug:
           msg: "File do not exists in {{ file_location }}"
