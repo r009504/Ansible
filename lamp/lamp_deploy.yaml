@@ -1,0 +1,24 @@
+---
+  - name: Deploy Lamp service
+    hosts: lamp_server
+    become: yes
+    tasks:
+      - name: Install apache package
+        package: 
+          name: "{{ apache_package }}"
+          state: present
+        notify: Package is installed
+      - name: Install PHP package
+        package:
+          name: "{{ item }}"
+          state: present
+        loop: "{{ php_package_list }}"
+    handlers: 
+      - debug:
+          msg: "{{ apache_package }} is successfully installed"
+          
+      
+      
+
+
+
