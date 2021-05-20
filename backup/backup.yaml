@@ -14,5 +14,6 @@
         when: file_state.stat.exists
 
       - name: Report flle do nto exists
-        command: " touch {{ file_location }} "
+        debug:
+          msg: "File do not exists in {{ file_location }}"
         when: not file_state.stat.exists
