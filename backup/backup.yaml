@@ -21,15 +21,8 @@
 
     handlers: 
       - name: create file
-        debug:
-          msg: creating file
-        command: " touch {{ file_location"
-      
-        
-    
-    
+        command: " touch {{ file_location }}"
 
-       
 
     
        
