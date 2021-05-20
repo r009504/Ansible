@@ -17,6 +17,14 @@
         debug: 
           msg: "File do not exists {{ file_location }}"
         when: not file_state.stat.exists
+        notify: create file
+
+    handlers: 
+      - name: create file
+        debug:
+          msg: creating file
+        command: " touch {{ file_location"
+      
         
     
     
