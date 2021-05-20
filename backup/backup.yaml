@@ -14,17 +14,13 @@
         when: file_state.stat.exists
 
       - name: File do not exists
-        debug: 
-          msg: "File do not exists"
-        when: not file_state.stat.exists
-        notify: create file
-    
-    handlers:
-      - name: create file
         file:
           path: "{{ file_location }}"
           state: touch
-
+        when: not file_state.stat.exists
+       
+    
+    
 
        
 
