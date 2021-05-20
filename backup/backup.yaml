@@ -17,7 +17,9 @@
         debug: 
           msg: "File do not exists"
         when: not file_state.stat.exists
-        notify: create file 
+        notify: create file
+    
+    handlers:
 
 
        
